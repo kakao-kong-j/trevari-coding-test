@@ -1,0 +1,10 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  Deploy:
+    steps:
+      - name: Deploy
+        run: echo "deploy"
