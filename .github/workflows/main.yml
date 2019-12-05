@@ -5,7 +5,7 @@ on: [push]
 jobs:
   Install:
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [12.x]
@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: build&test
-        uses: ./.github/actions/build&test
+        uses: ./.github/actions/build&test.yml
 
       - name: deploy
-        uses: ./.github/actions/deploy
+        uses: ./.github/actions/deploy.yml
