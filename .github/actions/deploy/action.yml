@@ -15,7 +15,7 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: '../../../Dockerfile'
   env: 
     AWS_ACCESS_KEY_ID: ${{ inputs.ACCESS_KEY }}
     AWS_SECRET_ACCESS_KEY: ${{ inputs.SECRET_ACCESS_KEY }}
