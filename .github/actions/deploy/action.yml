@@ -1,0 +1,9 @@
+name: "Deploy"
+description: 'Deploy To AWS S3'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env: 
+    AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+    AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+    AWS_DEFAULT_REGION: ap-northeast-2
