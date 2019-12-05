@@ -30,8 +30,11 @@ jobs:
       - name: install
         run: npm ci
 
-      - name: build&test
-        uses: ./.github/actions/build&test.yml
+      - name: test
+        run: npm test
+
+      - name: build
+        run: npm build
 
       - name: deploy
-        uses: ./.github/actions/deploy.yml
+        uses: ./.github/actions/deploy
