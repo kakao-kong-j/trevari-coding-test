@@ -40,6 +40,6 @@ jobs:
         run: docker run --env AWS_ACCESS_KEY_ID= ${{secrets.ACCESS_KEY}} \
             --env AWS_SECRET_ACCESS_KEY=${{secrets.SECRET_ACCESS_KEY}} \
             --env AWS_DEFAULT_REGION=${{secrets.AWS_DEFAULT_REGION}} \
-            -v $(pwd)/build:/app/build \
+            -v "$(pwd)/build:/app/build" \
             garland/aws-cli-docker \
             aws s3 sync build/ s3://${{secrets.S3_NAME}} --delete
