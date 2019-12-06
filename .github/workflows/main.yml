@@ -1,0 +1,41 @@
+name: workFlow
+
+on: [push]
+
+jobs:
+  Install:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ env.cache-name }}-
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+      - name: install
+        run: npm ci
+
+      - name: test
+        run: npm test
+
+      - name: build
+        run: npm run build
+
+      - name: deploy
+        if: github.ref == 'refs/heads/master'
+        run: docker run -v "$(pwd)/build:/app/build" --env AWS_ACCESS_KEY_ID=${{secrets.ACCESS_KEY}} --env AWS_SECRET_ACCESS_KEY=${{secrets.SECRET_ACCESS_KEY}} --env AWS_DEFAULT_REGION=${{secrets.AWS_DEFAULT_REGION}} garland/aws-cli-docker aws s3 sync /app/build/ s3://${{secrets.S3_NAME}} --delete
