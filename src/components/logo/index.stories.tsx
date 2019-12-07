@@ -6,8 +6,8 @@ export default {
   title: "Logo"
 };
 
-export const logo = () => <Logo />;
+export const LogoStoryBook = () => <Logo />;
 
-logo.story = {
+LogoStoryBook.story = {
   name: "logo Component"
 };

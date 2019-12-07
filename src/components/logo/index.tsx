@@ -1,11 +1,6 @@
-import React from "react";
-import styled from "styled-components";
+import React, { FC } from "react";
+import { Image } from "./style";
 
-const logo: React.FC = () => <Image src={"/logo.jpg"} />;
+const Logo: FC = () => <Image src={"/logo.jpg"} />;
 
-const Image = styled.img`
-  vertical-align: middle;
-  border-style: none;
-`;
-
-export default logo;
+export default Logo;
