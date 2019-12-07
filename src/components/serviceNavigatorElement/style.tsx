@@ -7,4 +7,8 @@ export const ServiceNavigatorElementStyle = styled.div`
   padding: 20px 8px;
   box-sizing: border-box;
   list-style-type: none;
+  color: rgba(0, 0, 0, 0.5);
+  :hover {
+    color: rgb(255, 137, 6);
+  }
 `;
