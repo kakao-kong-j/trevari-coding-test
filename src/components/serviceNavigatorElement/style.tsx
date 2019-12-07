@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../common/color";
 
 export const ServiceNavigatorElementStyle = styled.div`
   font-size: 14px;
@@ -7,8 +8,8 @@ export const ServiceNavigatorElementStyle = styled.div`
   padding: 20px 8px;
   box-sizing: border-box;
   list-style-type: none;
-  color: rgba(0, 0, 0, 0.5);
+  color: ${colors.GRAY};
   :hover {
-    color: rgb(255, 137, 6);
+    color: ${colors.TREVARI_ORANGE};
   }
 `;
