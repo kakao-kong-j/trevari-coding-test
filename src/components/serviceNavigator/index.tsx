@@ -16,10 +16,6 @@ export const ServiceNavigator: FC<ServiceNavigatorProps> = ({ categorys }) => {
     );
   });
   return (
-    <ServiceNavigatorStyle>
-      <ul style={{ position: "static", display: "inline-block", top: 0 }}>
-        {serviceNavigatorElements}
-      </ul>
-    </ServiceNavigatorStyle>
+    <ServiceNavigatorStyle>{serviceNavigatorElements}</ServiceNavigatorStyle>
   );
 };

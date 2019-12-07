@@ -6,11 +6,9 @@ export const ServiceNavigatorElement: FC<Category> = props => {
   const { name, uri } = props;
   return (
     <ServiceNavigatorElementStyle>
-      <li>
-        <a href={uri}>
-          <span>{name}</span>
-        </a>
-      </li>
+      <a href={uri}>
+        <span>{name}</span>
+      </a>
     </ServiceNavigatorElementStyle>
   );
 };
