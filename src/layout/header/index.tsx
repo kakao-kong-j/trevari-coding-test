@@ -3,6 +3,7 @@ import Logo from "../../components/logo";
 import { HeaderStyle } from "./style";
 import { ServiceNavigator } from "../../components/serviceNavigator";
 import { Category } from "../../components/serviceNavigator/types";
+import { colors } from "../../common/color";
 
 const CATEGORYS: Category[] = [
   { name: "트레바리 알아보기", uri: "/." },
@@ -16,10 +17,12 @@ const CATEGORYS: Category[] = [
 
 export const Header = () => {
   return (
-    <HeaderStyle>
-      <Logo />
-      <ServiceNavigator categorys={CATEGORYS} />
-    </HeaderStyle>
+    <div style={{ borderBottom: `1px solid ${colors.BLACK}` }}>
+      <HeaderStyle>
+        <Logo />
+        <ServiceNavigator categorys={CATEGORYS} />
+      </HeaderStyle>
+    </div>
   );
 };
 export default Header;
