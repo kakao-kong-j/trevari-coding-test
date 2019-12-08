@@ -17,7 +17,7 @@ const CATEGORYS: Category[] = [
 
 export const Header = () => {
   return (
-    <div style={{ borderBottom: `1px solid ${colors.BLACK}` }}>
+    <div style={{ borderBottom: `1px solid ${colors.GRAY_255}` }}>
       <HeaderStyle>
         <Logo />
         <ServiceNavigator categorys={CATEGORYS} />
