@@ -7,7 +7,7 @@ import { colors } from "../../common/color";
 
 const CATEGORYS: Category[] = [
   { name: "트레바리 알아보기", uri: "/." },
-  { name: "맴버쉽 신청", uri: "/.", isOpen: true },
+  { name: "멤버십 신청", uri: "/.", isOpen: true },
   { name: "독서 모임", uri: "/." },
   { name: "이벤트", uri: "/." },
   { name: "채용공고", uri: "/." },
