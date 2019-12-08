@@ -23,12 +23,6 @@ const App: React.FC = () => {
         rel="stylesheet"
       ></link>
       <Header />
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        Learn React
-      </header>
     </div>
   );
 };
