@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import { MeetingPageTopSearch } from "../components/meetingPageTopSearch";
 import { MeetingCardGroup } from "../components/meetingCardGroup";
 import { useMeetingState, useMeetingDispatch } from "../context/meeting";
@@ -8,8 +8,9 @@ import { useScroll } from "../hook/useScroll";
 export const MeetingListPage: FC = () => {
   const meetings = useMeetingState();
 
-  const [loadMore, setLoadMore] = useState(true);
   const { height } = useScroll();
+
+  const dispatch = useMeetingDispatch();
 
   const getData = async () => {
     const fetchedMeetings = await fetchMeetings();
@@ -17,15 +18,8 @@ export const MeetingListPage: FC = () => {
   };
 
   useEffect(() => {
-    getData();
-  }, [loadMore]);
-
-  const dispatch = useMeetingDispatch();
-
-  useEffect(() => {
-    if (height * 1.3 > window.scrollY) {
+    if ((window.innerHeight + height) * 1.2 >= document.body.offsetHeight) {
       getData();
-      setLoadMore(true);
     }
   });
 
