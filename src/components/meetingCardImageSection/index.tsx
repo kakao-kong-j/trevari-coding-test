@@ -7,9 +7,9 @@ import {
 import { MeetingType, Meeting } from "../meetingCard/types";
 
 export const MeetingCardImageSection: FC<{
-  meeting: Pick<Meeting, "coverUrl" | "type" | "leader">;
+  meeting: Pick<Meeting, "coverUrl" | "type" | "leaders">;
 }> = props => {
-  const { coverUrl, leader, type } = props.meeting;
+  const { coverUrl, leaders, type } = props.meeting;
   return (
     <MeetingCardWarpperStyle>
       <MeetingCardCoverImageStyle src={coverUrl} />
@@ -17,7 +17,7 @@ export const MeetingCardImageSection: FC<{
         <MeetingCardTypeLabelStyle>
           {type === MeetingType.MADE_BY_TREVART
             ? "트레바리가 디자인한 모임"
-            : `클럽장 ${leader && leader.name}님`}
+            : `클럽장 ${leaders && leaders.length > 0 && leaders[0].name}님`}
         </MeetingCardTypeLabelStyle>
       ) : null}
     </MeetingCardWarpperStyle>

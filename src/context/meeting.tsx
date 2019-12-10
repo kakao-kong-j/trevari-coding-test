@@ -1,14 +1,15 @@
 import React, { createContext, Dispatch, useReducer, useContext } from "react";
 import { Meeting } from "../components/meetingCard/types";
 
-type MeetingState = Meeting[];
+type MeetingState = { meetings: Meeting[]; status: string };
 
 const MeetingStateContext = createContext<MeetingState | undefined>(undefined);
 
 type Action =
   | { type: "APPEND"; meeting: Meeting }
   | { type: "BATCH_APPEND"; meetings: Meeting[] }
-  | { type: "CLEAR" };
+  | { type: "CLEAR" }
+  | { type: "SEARCH"; text: string };
 
 type MeetingDispatch = Dispatch<Action>;
 const MeetingDispatchContext = createContext<MeetingDispatch | undefined>(
@@ -18,11 +19,22 @@ const MeetingDispatchContext = createContext<MeetingDispatch | undefined>(
 const MeetingReducer = (state: MeetingState, action: Action): MeetingState => {
   switch (action.type) {
     case "APPEND":
-      return state.concat(action.meeting);
+      return {
+        meetings: state.meetings.concat(action.meeting),
+        status: "APPEND"
+      };
     case "BATCH_APPEND":
-      return [...state, ...action.meetings];
+      return {
+        meetings: [...state.meetings, ...action.meetings],
+        status: "APPEND"
+      };
     case "CLEAR":
-      return [];
+      return { meetings: [], status: "APPEND" };
+    case "SEARCH":
+      return {
+        meetings: state.meetings.filter(s => s.name.includes(action.text)),
+        status: "SEARCH"
+      };
     default:
       throw new Error("Unhandled action");
   }
@@ -45,7 +57,10 @@ export const MeetingContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [meetings, dispatch] = useReducer(MeetingReducer, []);
+  const [meetings, dispatch] = useReducer(MeetingReducer, {
+    meetings: [],
+    status: "APPEND"
+  });
 
   return (
     <MeetingDispatchContext.Provider value={dispatch}>

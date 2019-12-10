@@ -2,19 +2,21 @@ import React, { FC, useEffect } from "react";
 import { MeetingPageTopSearch } from "../components/meetingPageTopSearch";
 import { MeetingCardGroup } from "../components/meetingCardGroup";
 import { useMeetingState, useMeetingDispatch } from "../context/meeting";
-import { fetchMeetings } from "../hook/fetchMeetings";
+import { fetchMeetings } from "../common/fetchMeetings";
 import { useScroll } from "../hook/useScroll";
 
 export const MeetingListPage: FC = () => {
-  const meetings = useMeetingState();
+  const state = useMeetingState();
 
   const { height } = useScroll();
 
   const dispatch = useMeetingDispatch();
 
   const getData = async () => {
-    const fetchedMeetings = await fetchMeetings();
-    dispatch({ type: "BATCH_APPEND", meetings: fetchedMeetings });
+    if (state.status === "APPEND") {
+      const fetchedMeetings = await fetchMeetings();
+      dispatch({ type: "BATCH_APPEND", meetings: fetchedMeetings });
+    }
   };
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export const MeetingListPage: FC = () => {
   return (
     <div style={{ maxWidth: "1140px", margin: "0 auto", marginTop: "20px" }}>
       <MeetingPageTopSearch />
-      <MeetingCardGroup meetings={meetings} />
+      <MeetingCardGroup meetings={state.meetings} />
     </div>
   );
 };
