@@ -7,7 +7,7 @@ export default {
   title: "MeetingCardDetailSection"
 };
 
-const data: Pick<Meeting, "contents" | "place" | "startedAt"> = {
+const data: Pick<Meeting, "contents" | "place" | "startedAt" | "name"> = {
   contents: [
     {
       author: "한스 로슬링, 올라 로슬링",
@@ -17,6 +17,7 @@ const data: Pick<Meeting, "contents" | "place" | "startedAt"> = {
   place: {
     name: "압구정 아지트"
   },
+  name: "트레바리 미팅",
   startedAt: new Date("Wed Dec 11 2019 10:40:00 GMT+0000 (UTC)")
 };
 

@@ -10,9 +10,9 @@ import { convertLocalTime } from "../../common/time";
 import { Meeting } from "../meetingCard/types";
 
 export const MeetingCardDetailSection: FC<{
-  meeting: Pick<Meeting, "contents" | "place" | "startedAt">;
+  meeting: Pick<Meeting, "contents" | "place" | "startedAt" | "name">;
 }> = props => {
-  const { contents, place, startedAt } = props.meeting;
+  const { contents, place, startedAt, name } = props.meeting;
   return (
     <MeetingCardDetailSectionStyle>
       <MeetingCardNameStyle>{name}</MeetingCardNameStyle>
