@@ -17,7 +17,7 @@ export const MeetingCardImageSection: FC<{
         <MeetingCardTypeLabelStyle>
           {type === MeetingType.MADE_BY_TREVART
             ? "트레바리가 디자인한 모임"
-            : `클럽장 ${leaders && leaders[0].name}님`}
+            : `클럽장 ${leaders && leaders.length > 0 && leaders[0].name}님`}
         </MeetingCardTypeLabelStyle>
       ) : null}
     </MeetingCardWarpperStyle>
