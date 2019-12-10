@@ -7,7 +7,7 @@ export enum MeetingType {
 export interface Meeting {
   clubID: string;
   coverUrl: string;
-  leader?: { name: string };
+  leaders?: { name: string }[];
   type: MeetingType;
   name: string;
   contents: {

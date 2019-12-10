@@ -13,7 +13,7 @@ const data: Meeting = {
   name: "무경계-고래",
   type: MeetingType.MADE_BY_LEADER,
   clubID: "39e6389e-9a8b-4b1e-8ea7-3423b0ff8ca3",
-  leader: { name: "홍진호" },
+  leaders: [{ name: "홍진호" }],
   contents: [
     {
       author: "한스 로슬링, 올라 로슬링",
