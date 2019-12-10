@@ -2,7 +2,7 @@ import React, { FC, useEffect } from "react";
 import { MeetingPageTopSearch } from "../components/meetingPageTopSearch";
 import { MeetingCardGroup } from "../components/meetingCardGroup";
 import { useMeetingState, useMeetingDispatch } from "../context/meeting";
-import { fetchMeetings } from "../hook/fetchMeetings";
+import { fetchMeetings } from "../common/fetchMeetings";
 import { useScroll } from "../hook/useScroll";
 
 export const MeetingListPage: FC = () => {
