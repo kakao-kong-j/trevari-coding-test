@@ -5,8 +5,10 @@ import {
   FaqDocumentSearchSectionStyle,
   FaqDocumentSearchButtonStyle
 } from "./style";
+import { useInput } from "../../hook/useInput";
 
-export const FaqDocumentSearchSection: FC = props => {
+export const FaqDocumentSearchSection: FC = () => {
+  const input = useInput("");
   return (
     <FaqDocumentSearchSectionStyle>
       <FaqDocumentSearchSelectBoxStyle>
@@ -14,7 +16,7 @@ export const FaqDocumentSearchSection: FC = props => {
         <option>제목</option>
         <option>내용</option>
       </FaqDocumentSearchSelectBoxStyle>
-      <FaqDocumentSearchInputStyle></FaqDocumentSearchInputStyle>
+      <FaqDocumentSearchInputStyle {...input}></FaqDocumentSearchInputStyle>
       <FaqDocumentSearchButtonStyle>검색</FaqDocumentSearchButtonStyle>
     </FaqDocumentSearchSectionStyle>
   );

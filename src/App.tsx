@@ -4,6 +4,8 @@ import Header from "./layout/header";
 import { MeetingListPage } from "./page/meetingList";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CustomerServicePage } from "./page/customerService";
+import { MeetingContextProvider } from "./context/meeting";
+import { FaqContextProvider } from "./context/faq";
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -27,17 +29,21 @@ const App: React.FC = () => {
       ></link>
       <BrowserRouter>
         <Header />
-        <Switch>
-          <Route exact path="/">
-            <MeetingListPage />
-          </Route>
-          <Route exact path="/meetings">
-            <MeetingListPage />
-          </Route>
-          <Route exact path="/cs">
-            <CustomerServicePage />
-          </Route>
-        </Switch>
+        <MeetingContextProvider>
+          <FaqContextProvider>
+            <Switch>
+              <Route exact path="/">
+                <MeetingListPage />
+              </Route>
+              <Route exact path="/meetings">
+                <MeetingListPage />
+              </Route>
+              <Route exact path="/cs">
+                <CustomerServicePage />
+              </Route>
+            </Switch>
+          </FaqContextProvider>
+        </MeetingContextProvider>
       </BrowserRouter>
     </div>
   );
