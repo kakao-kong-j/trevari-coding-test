@@ -8,7 +8,8 @@ const MeetingStateContext = createContext<MeetingState | undefined>(undefined);
 type Action =
   | { type: "APPEND"; meeting: Meeting }
   | { type: "BATCH_APPEND"; meetings: Meeting[] }
-  | { type: "CLEAR" };
+  | { type: "CLEAR" }
+  | { type: "SEARCH"; text: string };
 
 type MeetingDispatch = Dispatch<Action>;
 const MeetingDispatchContext = createContext<MeetingDispatch | undefined>(
@@ -23,6 +24,8 @@ const MeetingReducer = (state: MeetingState, action: Action): MeetingState => {
       return [...state, ...action.meetings];
     case "CLEAR":
       return [];
+    case "SEARCH":
+      return state.filter(s => s.name.includes(action.text));
     default:
       throw new Error("Unhandled action");
   }
