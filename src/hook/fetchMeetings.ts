@@ -4,9 +4,13 @@ export const fetchMeetings = async (
   cursor?: string,
   text?: string
 ): Promise<Meeting[]> => {
-  await setTimeout(() => {
-    console.log("fetch meeting");
-  }, 100);
+  console.log("Fetch start");
+  await new Promise((res, rej) => {
+    setTimeout(() => {
+      console.log("Fetch Data");
+      res();
+    }, 100);
+  });
   return new Array(21).fill({
     coverUrl:
       "https://s3.ap-northeast-2.amazonaws.com/file.trevari.co.kr/efb0fc6b-d11c-458c-aadd-8b95598882cf.a6bcac4e-04d2-4b38-98ad-4fce2a1f8a74_club%20copy%204.jpg",
