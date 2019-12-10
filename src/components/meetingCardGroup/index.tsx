@@ -7,8 +7,8 @@ export const MeetingCardGroup: FC<{ meetings: Meeting[] }> = props => {
   const { meetings } = props;
   return (
     <MeetingCardGroupStyle>
-      {meetings.map(meeting => (
-        <MeetingCard meeting={meeting} />
+      {meetings.map((meeting, index) => (
+        <MeetingCard key={index} meeting={meeting} />
       ))}
     </MeetingCardGroupStyle>
   );
