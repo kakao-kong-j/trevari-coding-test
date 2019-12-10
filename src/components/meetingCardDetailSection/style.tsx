@@ -18,4 +18,5 @@ export const MeetingCardDescriptionStyle = styled.div`
 
 export const MeetingCardContentsStyle = styled.div`
   font-weight: 600;
+  color: ${colors.BLUE};
 `;
