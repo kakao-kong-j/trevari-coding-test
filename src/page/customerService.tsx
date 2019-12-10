@@ -4,10 +4,11 @@ import { FaqDescriptionSection } from "../components/faqDescriptionSection";
 import { FaqCategoryButtonGroup } from "../components/faqCategoryButtonGroup";
 import { FaqDocumentSearchSection } from "../components/faqDocumentSearchSection";
 import { FaqDocumentGroup } from "../components/faqDocumentGroup";
-import { faqs } from "../components/faqDocumentGroup/types";
 import { colors } from "../common/color";
+import { useFaqState } from "../context/faq";
 
 export const CustomerServicePage: FC = () => {
+  const faqs = useFaqState();
   return (
     <div style={{ backgroundColor: colors.GRAY_LIGHT }}>
       <div style={{ height: "50px" }} />
