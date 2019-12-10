@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 import Header from "./layout/header";
 import { MeetingListPage } from "./page/meetingList";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { CustomerServicePage } from "./page/customerService";
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -34,7 +35,7 @@ const App: React.FC = () => {
             <MeetingListPage />
           </Route>
           <Route exact path="/cs">
-            <div />
+            <CustomerServicePage />
           </Route>
         </Switch>
       </BrowserRouter>
