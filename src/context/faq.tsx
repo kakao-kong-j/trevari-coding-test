@@ -8,6 +8,8 @@ const FaqStateContext = createContext<FaqState | undefined>(undefined);
 type Action =
   | { type: "APPEND"; faq: Faq }
   | { type: "BATCH_APPEND"; faqs: Faq[] }
+  | { type: "CATEGORY"; category: string }
+  | { type: "SEARCH"; text: string; option: string }
   | { type: "CLEAR" };
 
 type FaqDispatch = Dispatch<Action>;
@@ -19,6 +21,23 @@ const FaqReducer = (state: FaqState, action: Action): FaqState => {
       return state.concat(action.faq);
     case "BATCH_APPEND":
       return [...state, ...action.faqs];
+    case "CATEGORY":
+      return state.filter(faq => faq.category === action.category);
+    case "SEARCH":
+      return state.filter(faq => {
+        if (action.option === "제목") {
+          return faq.title.includes(action.text);
+        } else if (action.option === "제목&내용") {
+          return (
+            faq.title.includes(action.text) ||
+            faq.description.includes(action.text)
+          );
+        } else if (action.option === "내용") {
+          return faq.description.includes(action.text);
+        } else {
+          throw new Error();
+        }
+      });
     case "CLEAR":
       return [];
     default:
