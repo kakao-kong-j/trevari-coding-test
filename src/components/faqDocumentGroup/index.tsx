@@ -7,8 +7,8 @@ export const FaqDocumentGroup: FC<{ faqs: Faq[] }> = props => {
   const { faqs } = props;
   return (
     <FaqDocumentGroupStyle>
-      {faqs.map(faq => (
-        <FaqDocumentElement faq={faq} />
+      {faqs.map((faq, index) => (
+        <FaqDocumentElement key={index} faq={faq} />
       ))}
     </FaqDocumentGroupStyle>
   );
