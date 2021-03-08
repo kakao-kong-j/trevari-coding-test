@@ -1,8 +1,8 @@
 # Demo
 
-- 독서 모임 페이지 :http://trevari-coding-test.s3-website.ap-northeast-2.amazonaws.com/meetings
+- 독서 모임 페이지 : ~http://trevari-coding-test.s3-website.ap-northeast-2.amazonaws.com/meetings~
 
-- FAQ 페이지 :http://trevari-coding-test.s3-website.ap-northeast-2.amazonaws.com/cs
+- FAQ 페이지 :~http://trevari-coding-test.s3-website.ap-northeast-2.amazonaws.com/cs~
 
 # Tech Stack
 
